@@ -1,0 +1,18 @@
+apiVersion: v1
+entries:
+  rdt-client:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-04-21T08:37:19.978639935+10:00"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.2
+    description: A Helm chart for Kubernetes
+    digest: 976a226d1df4aa55e503ad71d166ec7321ee8bf8b91667ab03414f79e8631df7
+    name: rdt-client
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/rdt-client-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-04-21T08:37:19.97645631+10:00"
