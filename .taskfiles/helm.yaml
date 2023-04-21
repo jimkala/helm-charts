@@ -1,0 +1,16 @@
+version: "3"
+
+
+tasks:
+  package:
+    desc: Package helm charts for upload
+    cmds:
+      - helm package {{.CHARTS}}
+  lint:
+    desc: Lint helm charts for upload
+    cmds:
+      - helm lint {{.CHARTS}}
+  index: 
+    desc: Create index y aml
+    cmds:
+      - helm repo index --url {{.REPO_URL}} .

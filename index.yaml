@@ -1,18 +1,33 @@
 apiVersion: v1
 entries:
-  rdt-client:
+  bind9:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-04-21T08:37:19.978639935+10:00"
+    created: "2023-04-21T15:01:10.094527653+10:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
       version: 4.5.2
-    description: A Helm chart for Kubernetes
-    digest: 976a226d1df4aa55e503ad71d166ec7321ee8bf8b91667ab03414f79e8631df7
+    description: BIND9 with Webmin
+    digest: ecae73da21ad799de72e54c3bc4ffa4311c827368075a14219690e120611ff1f
+    name: bind9
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/bind9-0.1.0.tgz
+    version: 0.1.0
+  rdt-client:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-04-21T15:01:10.096446109+10:00"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.2
+    description: Real Debrid client
+    digest: 3f8654b7f25e8badcbb1d60b1a646d93df937659555536254718f71c87f91fe1
     name: rdt-client
     type: application
     urls:
     - https://jimkala.github.io/helm-charts/rdt-client-0.1.0.tgz
     version: 0.1.0
-generated: "2023-04-21T08:37:19.97645631+10:00"
+generated: "2023-04-21T15:01:10.091228223+10:00"

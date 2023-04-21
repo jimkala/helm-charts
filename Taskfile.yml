@@ -1,0 +1,20 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  REPO_URL: https://jimkala.github.io/helm-charts
+  CHARTS: >-
+    rdt-client
+    bind9
+
+includes:
+  helm: .taskfiles/helm.yaml
+
+tasks:
+  default:
+    cmds:
+      - task: helm:lint
+      - task: helm:package
+      - task: helm:index
+    silent: true

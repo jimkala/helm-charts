@@ -7,13 +7,13 @@
 
 image:
   # -- image repository
-  repository: ghcr.io/rogerfar/rdtclient
+  repository: eafxx/bind
   # -- image pull policy
   pullPolicy: IfNotPresent
   # -- image tag
-  tag: 2.0.29
+  tag: latest-ccf145d3
 
-# -- environment variables. See more environment variables in the [calibre-web documentation](https://github.com/linuxserver/docker-calibre-web#parameters).
+# -- environment variables. See more environment variables in the [docker-bind documentation](https://github.com/elmerfdz/docker-bind).
 # @default -- See below
 env: null
 
@@ -23,7 +23,23 @@ service:
   main:
     ports:
       http:
-        port: 6500
+        port: 10000
+  dns:
+    enabled: true
+    type: LoadBalancer
+    ports:
+      udp:
+        enabled: true
+        port: 53
+        protocol: UDP
+        targetPort: 53
+      tcp:
+        enabled: true
+        port: 53
+        protocol: TCP
+        targetPort: 53
+
+      
 
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.
@@ -34,15 +50,5 @@ ingress:
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
 persistence:
-  config:
-    enabled: true
-    mountPath: /data/db
-    size: 500Mi
-    accessMode: ReadWriteOnce
-    storageClass: longhorn
-  downloads:
-    enabled: true
-    mountPath: /data/downloads
-    size: 50Gi
-    accessMode: ReadWriteMany
-    storageClass: longhorn
+  data:
+    enabled: false
