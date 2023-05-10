@@ -8,6 +8,7 @@ vars:
     rdt-client
     bind9
     readarr
+    sabnzbd
 
 includes:
   helm: .taskfiles/helm.yaml
@@ -18,4 +19,8 @@ tasks:
       - task: helm:lint
       - task: helm:package
       - task: helm:index
+    silent: true
+  publish:
+    cmds:
+      - task: default
     silent: true

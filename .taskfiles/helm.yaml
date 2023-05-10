@@ -13,4 +13,4 @@ tasks:
   index: 
     desc: Create index y aml
     cmds:
-      - helm repo index --url {{.REPO_URL}} .
+      - helm repo index --url {{.REPO_URL}} --merge index.yaml .
