@@ -3,7 +3,7 @@ entries:
   Prowlarr:
   - apiVersion: v2
     appVersion: 1.4.1
-    created: "2023-05-10T16:13:39.279060771+10:00"
+    created: "2023-05-10T16:18:10.794779055+10:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
@@ -18,7 +18,7 @@ entries:
   bind9:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-10T16:13:39.280737005+10:00"
+    created: "2023-05-10T16:18:10.796646565+10:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -33,7 +33,7 @@ entries:
   nzbhydra2:
   - apiVersion: v2
     appVersion: 5.1.8
-    created: "2023-05-10T16:13:39.283083207+10:00"
+    created: "2023-05-10T16:18:10.798949458+10:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
@@ -45,10 +45,25 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/nzbhydra2-0.1.0.tgz
     version: 0.1.0
+  prowlarr:
+  - apiVersion: v2
+    appVersion: 1.4.1
+    created: "2023-05-10T16:18:10.800568723+10:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: Prowlarr App
+    digest: c214763b1d0b32213d51ba79087669c976f0a47b2d7b67d14a86714a800691be
+    name: prowlarr
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/prowlarr-0.1.1.tgz
+    version: 0.1.1
   rdt-client:
   - apiVersion: v2
     appVersion: 2.0.30
-    created: "2023-05-10T16:13:39.288261013+10:00"
+    created: "2023-05-10T16:18:10.803789683+10:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
@@ -62,7 +77,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-10T16:13:39.285859309+10:00"
+    created: "2023-05-10T16:18:10.802122111+10:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -77,7 +92,7 @@ entries:
   readarr:
   - apiVersion: v2
     appVersion: nightly-version-0.1.5.1782
-    created: "2023-05-10T16:13:39.290560423+10:00"
+    created: "2023-05-10T16:18:10.806323836+10:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
@@ -92,16 +107,16 @@ entries:
   sabnzbd:
   - apiVersion: v2
     appVersion: nightly-version-c63b2592
-    created: "2023-05-10T16:13:39.29214122+10:00"
+    created: "2023-05-10T16:18:10.808214499+10:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
       version: 1.4.0
     description: SabNZBd App
-    digest: 613cf0c8b3f4234f4d389eec3ca495dd19fb30f296d33d69e69c7faec72739cd
+    digest: 5f486d0fbbddd9dd05ccb1cb3d8a2210f1790acf4c2da5827790b6ecb777946e
     name: sabnzbd
     type: application
     urls:
     - https://jimkala.github.io/helm-charts/sabnzbd-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-10T16:13:39.276858129+10:00"
+generated: "2023-05-10T16:18:10.792728875+10:00"
