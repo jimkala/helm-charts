@@ -3,7 +3,7 @@ entries:
   bind9:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-10T13:02:22.998047671+10:00"
+    created: "2023-05-10T13:48:19.312312791+10:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -15,10 +15,39 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/bind9-0.1.0.tgz
     version: 0.1.0
+  nzbhydra2:
+  - apiVersion: v2
+    appVersion: 5.1.8
+    created: "2023-05-10T13:48:19.314216356+10:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: NzbHydra2 App
+    digest: 2db21fd378611ca4bec63c28affc741b801016f3ce9825560219df851ec591f2
+    name: nzbhydra2
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/nzbhydra2-0.1.0.tgz
+    version: 0.1.0
   rdt-client:
   - apiVersion: v2
+    appVersion: 2.0.30
+    created: "2023-05-10T13:48:19.318949874+10:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: Real Debrid client
+    digest: 2f2f7b5103f52cc8f86ee2198e037f2eafdea3580a1a7da164919e63ffef0e77
+    name: rdt-client
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/rdt-client-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-10T13:02:22.999601353+10:00"
+    created: "2023-05-10T13:48:19.316400815+10:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -33,7 +62,7 @@ entries:
   readarr:
   - apiVersion: v2
     appVersion: nightly-version-0.1.5.1782
-    created: "2023-05-10T13:02:23.001270377+10:00"
+    created: "2023-05-10T13:48:19.321410355+10:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
@@ -48,16 +77,16 @@ entries:
   sabnzbd:
   - apiVersion: v2
     appVersion: nightly-version-c63b2592
-    created: "2023-05-10T13:02:23.004110197+10:00"
+    created: "2023-05-10T13:48:19.323304035+10:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
       version: 1.4.0
     description: SabNZBd App
-    digest: 5f486d0fbbddd9dd05ccb1cb3d8a2210f1790acf4c2da5827790b6ecb777946e
+    digest: 613cf0c8b3f4234f4d389eec3ca495dd19fb30f296d33d69e69c7faec72739cd
     name: sabnzbd
     type: application
     urls:
     - https://jimkala.github.io/helm-charts/sabnzbd-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-10T13:02:22.9964509+10:00"
+generated: "2023-05-10T13:48:19.308901196+10:00"

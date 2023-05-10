@@ -7,15 +7,17 @@
 
 image:
   # -- image repository
-  repository: ghcr.io/rogerfar/rdtclient
+  repository: docker.io/linuxserver/nzbhydra2
+  # -- image tag
+  #tag: ""
   # -- image pull policy
   pullPolicy: IfNotPresent
-  # -- image tag
-  #tag: 2.0.29
 
-# -- environment variables. See more environment variables in the [calibre-web documentation](https://github.com/linuxserver/docker-calibre-web#parameters).
+# -- environment variables.
 # @default -- See below
-env: null
+env:
+  # -- Set the container timezone
+  TZ: Australia/Melbourne
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
@@ -23,7 +25,7 @@ service:
   main:
     ports:
       http:
-        port: 6500
+        port: 5076
 
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.
@@ -36,7 +38,7 @@ ingress:
 persistence:
   config:
     enabled: false
-    mountPath: /data/db
+
   downloads:
     enabled: false
-    mountPath: /data/downloads
+  

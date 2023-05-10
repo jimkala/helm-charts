@@ -5,11 +5,11 @@ tasks:
   package:
     desc: Package helm charts for upload
     cmds:
-      - helm package {{.CHARTS}}
+      - helm package {{.CLI_ARGS}}
   lint:
     desc: Lint helm charts for upload
     cmds:
-      - helm lint {{.CHARTS}}
+      - helm lint {{.CLI_ARGS}}
   index: 
     desc: Create index y aml
     cmds:
