@@ -30,10 +30,25 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/bind9-0.1.0.tgz
     version: 0.1.0
+  cops:
+  - apiVersion: v2
+    appVersion: 1.1.3
+    created: "2023-05-12T20:38:34.32388598+10:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: COPS App
+    digest: 83d56d3e532268006822255dd5e7ff4814bad983ae4c292214d47881d709fd59
+    name: cops
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/cops-0.1.0.tgz
+    version: 0.1.0
   nzbhydra2:
   - apiVersion: v2
     appVersion: 5.1.8
-    created: "2023-05-10T16:18:10.798949458+10:00"
+    created: "2023-05-12T20:38:34.326648138+10:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
