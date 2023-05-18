@@ -15,10 +15,25 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/Prowlarr-0.1.0.tgz
     version: 0.1.0
+  bazarr:
+  - apiVersion: v2
+    appVersion: 1.2.1
+    created: "2023-05-19T08:00:50.549180671+10:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: Bazarr App
+    digest: f296787985c70fc2371dd0ab8b16148140b8d4796345ec08405d0da2cea25caf
+    name: bazarr
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/bazarr-0.1.0.tgz
+    version: 0.1.0
   bind9:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-17T07:24:39.829734883+10:00"
+    created: "2023-05-19T08:00:50.554218289+10:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -149,4 +164,4 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-17T07:24:39.811017415+10:00"
+generated: "2023-05-19T08:00:50.542118243+10:00"
