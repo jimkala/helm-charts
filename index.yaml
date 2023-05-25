@@ -60,10 +60,25 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/cops-0.1.0.tgz
     version: 0.1.0
+  jellyfin:
+  - apiVersion: v2
+    appVersion: 10.8.10
+    created: "2023-05-25T15:28:07.827061692+10:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: Jellyfin App
+    digest: 0e910668ee902b930cadb57c2eb95b153c1ed76414b19851d54a36f1d08f61a9
+    name: jellyfin
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/jellyfin-0.1.0.tgz
+    version: 0.1.0
   nzbhydra2:
   - apiVersion: v2
     appVersion: 5.1.8
-    created: "2023-05-17T07:24:39.85063346+10:00"
+    created: "2023-05-25T15:28:07.828816284+10:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
@@ -164,4 +179,4 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-19T08:00:50.542118243+10:00"
+generated: "2023-05-25T15:28:07.812782559+10:00"
