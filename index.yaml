@@ -122,7 +122,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-17T07:24:39.867603165+10:00"
+    created: "2023-06-02T15:40:03.856121111+10:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -136,8 +136,22 @@ entries:
     version: 0.1.0
   readarr:
   - apiVersion: v2
+    appVersion: 0.1.7-nightly
+    created: "2023-06-02T15:40:03.871192304+10:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: Readarr App
+    digest: 887eb4cb15e790099d429e4752c290a1e263a2931bd18a23767e3332a4f45a3a
+    name: readarr
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/readarr-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     appVersion: nightly-version-0.1.5.1782
-    created: "2023-05-17T07:24:39.88671028+10:00"
+    created: "2023-06-02T15:40:03.86765424+10:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
@@ -179,4 +193,4 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-25T15:28:07.812782559+10:00"
+generated: "2023-06-02T15:40:03.809246906+10:00"
