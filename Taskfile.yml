@@ -12,9 +12,10 @@ vars:
 
 includes:
   helm: .taskfiles/helm.yaml
+  install: .taskfiles/InstallTasks.yaml
 
 tasks:
-  default:
+  standard:
     cmds:
       - task: helm:lint
       - task: helm:package
@@ -22,5 +23,5 @@ tasks:
     silent: true
   publish:
     cmds:
-      - task: default
+      - task: standard
     silent: true

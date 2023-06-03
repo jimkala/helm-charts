@@ -1,0 +1,36 @@
+version: '3'
+
+vars:
+    TEMPLATE_DIR: "{{.ROOT_DIR}}/tmpl/app"
+    APPS_DIR: "{{.ROOT_DIR}}"
+
+tasks:
+  new:
+    desc: Create a new application from template eg task install:new APPNAME=komga IMAGE=gotson/komga SERVICE_PORT=8080   
+    cmds:
+      - cp -a {{.TEMPLATE_DIR}} {{.INSTALL_DIR}}
+      - find {{.INSTALL_DIR}} -type f -exec sed -i 's/{APPNAME}/{{.APPNAME}}/g' {} \;
+      - find {{.INSTALL_DIR}} -type f -exec sed -i 's#{IMAGE}#{{.IMAGE}}#g' {} \;
+      - find {{.INSTALL_DIR}} -type f -exec sed -i 's/{SERVICE_PORT}/{{.SERVICE_PORT}}/g' {} \;
+    preconditions:
+      - test ! -d {{.INSTALL_DIR}}
+      - sh: "[ '{{.APPNAME}}' != '<no value>' ]"
+        msg: "Variable .APPNAME is not set"
+      - sh: "[ '{{.IMAGE}}' != '<no value>' ]"
+        msg: "Variable .IMAGE is not set"
+      - sh: "[ '{{.SERVICE_PORT}}' != '<no value>' ]"
+        msg: "Variable .SERVICE_PORT is not set"
+    vars:
+      INSTALL_DIR:
+        sh: echo {{.APPS_DIR}}/{{.APPNAME}}
+  clean:
+    desc: Clean directory
+    cmds:
+      - echo 'cleaning' {{.INSTALL_DIR}}
+    preconditions:
+      - test -d {{.INSTALL_DIR}}
+      - sh: "[ '{{.APPNAME}}' != '<no value>' ]"
+        msg: "Variable .APPNAME is not set"
+    vars:
+      INSTALL_DIR:
+        sh: echo {{.APPS_DIR}}/{{.APPNAME}}

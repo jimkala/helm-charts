@@ -2,6 +2,13 @@ version: "3"
 
 
 tasks:
+  build:
+    desc: Build chart eg task helm:build -- komga
+    cmds:
+      - helm dependency update {{.CLI_ARGS}}
+      - task: lint
+      - task: package
+      - task: index
   package:
     desc: Package helm charts for upload
     cmds:
