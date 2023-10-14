@@ -75,6 +75,36 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/jellyfin-0.1.0.tgz
     version: 0.1.0
+  komga:
+  - apiVersion: v2
+    appVersion: 0.165.0
+    created: "2023-06-12T20:08:59.067391113+10:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: komga App
+    digest: 78e8e07bb721784bfac83fef34084151ead975978ee55bbdd6d4eafb5a0d465e
+    name: komga
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/komga-0.1.0.tgz
+    version: 0.1.0
+  mylar:
+  - apiVersion: v2
+    appVersion: 0.7.2
+    created: "2023-06-12T20:08:59.068918209+10:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: mylar App
+    digest: 83d8ac92cd29f78a3aa231ddf84cc0ef40d6c9b10aedc2e90ca05b702fce0791
+    name: mylar
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/mylar-0.1.0.tgz
+    version: 0.1.0
   nzbhydra2:
   - apiVersion: v2
     appVersion: 5.1.8
@@ -150,7 +180,6 @@ entries:
     - https://jimkala.github.io/helm-charts/readarr-0.1.2.tgz
     version: 0.1.2
   - apiVersion: v2
-    appVersion: 0.1.7-nightly
     created: "2023-10-14T10:49:02.022175922+11:00"
     dependencies:
     - name: common
@@ -207,4 +236,19 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/sonarr-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-14T10:49:01.989554033+11:00"
+  unifi:
+  - apiVersion: v2
+    appVersion: 7.4.156
+    created: "2023-06-12T20:08:59.09150574+10:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: unifi App
+    digest: d05c3194f3903b7e965e4c5c31801a7980d9cc29374a41bdb86ce3ed943e7168
+    name: unifi
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/unifi-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-06-12T20:08:59.053506891+10:00"
