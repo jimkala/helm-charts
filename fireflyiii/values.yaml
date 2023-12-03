@@ -1,0 +1,71 @@
+firefly-db:
+  # if you set this to false it will not be installed
+  enabled: true
+  image:
+    repository: postgres
+    tag: 10-alpine
+    pullPolicy: IfNotPresent
+
+  storage:
+    class: longhorn
+    accessModes: ReadWriteMany
+    dataSize: 1Gi
+
+  # environment variables
+  configs:
+    existingSecret: "firefly-db-secrets"
+    RESTORE_URL: ""
+    BACKUP_URL: ""
+    PGPASSWORD: ""
+    DBHOST: firefly-db
+    DBPORT: "5432"
+    DBNAME: firefly
+    DBUSER: firefly
+    TZ: Australia/Melbourne
+
+  backupSchedule: "0 3 * * *"
+
+  backup:
+    # There are two possible backup destinations currently implemented, http and pvc
+    destination: "pvc"
+    pvc:
+      class: longhorn
+      accessModes: ReadWriteOnce
+      dataSize: 1Gi
+      # -- Use an existing PersistentVolumeClaim, overrides values above
+      existingClaim: ""
+
+
+firefly-iii:
+  # -- Set to false to not deploy Firefly III
+  enabled: true
+  config:
+    existingSecret: "firefly-iii-secrets"
+    env:
+      TZ: "Australia/Melbourne"
+  cronjob:
+    enabled: false
+
+importer:
+  # -- Set to false to not deploy the importer
+  enabled: true
+  trustedProxies: "**"
+
+  fireflyiii:
+    # -- The URL at which Firefly III is available. If you change this value, click the "Reauthenticate" button on the importer after opening it!
+    url: "http://firefly-firefly-iii:80"
+
+    # -- The URL at which you access Firefly III. Check https://docs.firefly-iii.org/data-importer/install/configure/#configure-fidi to find out if you should set this.
+    vanityUrl: ""
+
+    auth:
+      # -- If you specify an existingSecret, it has to have the accessToken in a .spec.data.accessToken
+      existingSecret: ""
+
+      # -- The access token in plain text
+      accessToken: ""
+  config:
+    existingSecret: "firefly-importer-secrets"
+    env:
+      IGNORE_DUPLICATE_ERRORS: "false"
+      TZ: "Australia/Melbourne"

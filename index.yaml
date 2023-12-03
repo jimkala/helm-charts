@@ -60,10 +60,34 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/cops-0.1.0.tgz
     version: 0.1.0
+  fireflyiii:
+  - apiVersion: v2
+    appVersion: version-6
+    created: "2023-12-04T09:25:04.587073509+11:00"
+    dependencies:
+    - condition: firefly-db.enabled
+      name: firefly-db
+      repository: https://firefly-iii.github.io/kubernetes/
+      version: 0.2.1
+    - condition: firefly-iii.enabled
+      name: firefly-iii
+      repository: https://firefly-iii.github.io/kubernetes/
+      version: 1.5.0
+    - condition: importer.enabled
+      name: importer
+      repository: https://firefly-iii.github.io/kubernetes/
+      version: 1.3.1
+    description: fireflyiii App
+    digest: 6ea6bfc4c9acce8d196abce3933ada595b7d06c0e5902a64a92ec9faf59b222c
+    name: fireflyiii
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/fireflyiii-0.1.0.tgz
+    version: 0.1.0
   jellyfin:
   - apiVersion: v2
     appVersion: 10.8.11
-    created: "2023-10-15T20:51:01.13947208+11:00"
+    created: "2023-12-04T09:25:04.590145981+11:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
