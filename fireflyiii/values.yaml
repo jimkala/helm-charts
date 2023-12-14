@@ -1,3 +1,33 @@
+postgresql:
+  enabled: true
+
+  architecture: standalone
+
+  auth:
+    existingSecret: ""
+    username: firefly
+    database: firefly
+    secretKeys:
+      adminPasswordKey: ""
+      userPasswordKey: ""
+  primary:
+    extraEnvVars: []
+    extraEnvVarsCM: ""
+    extraEnvVarsSecret: ""
+    persistence:
+      enabled: false
+      existingClaim: ""
+      storageClass: ""
+      size: 1Gi
+  backup:
+    enabled: true
+    cronjob:
+      schedule: '@daily'
+      timeZone: Australia/Melbourne
+      storage:
+        existingClaim: ""
+        storageClass: ""
+        size: 1Gi
 firefly-db:
   # if you set this to false it will not be installed
   enabled: true
