@@ -28,43 +28,6 @@ postgresql:
         existingClaim: ""
         storageClass: ""
         size: 1Gi
-firefly-db:
-  # if you set this to false it will not be installed
-  enabled: true
-  image:
-    repository: postgres
-    tag: 10-alpine
-    pullPolicy: IfNotPresent
-
-  storage:
-    class: longhorn
-    accessModes: ReadWriteMany
-    dataSize: 1Gi
-
-  # environment variables
-  configs:
-    existingSecret: "firefly-db-secrets"
-    RESTORE_URL: ""
-    BACKUP_URL: ""
-    PGPASSWORD: ""
-    DBHOST: firefly-db
-    DBPORT: "5432"
-    DBNAME: firefly
-    DBUSER: firefly
-    TZ: Australia/Melbourne
-
-  backupSchedule: "0 3 * * *"
-
-  backup:
-    # There are two possible backup destinations currently implemented, http and pvc
-    destination: "pvc"
-    pvc:
-      class: longhorn
-      accessModes: ReadWriteOnce
-      dataSize: 1Gi
-      # -- Use an existing PersistentVolumeClaim, overrides values above
-      existingClaim: ""
-
 
 firefly-iii:
   # -- Set to false to not deploy Firefly III

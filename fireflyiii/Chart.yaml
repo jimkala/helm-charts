@@ -28,10 +28,6 @@ dependencies:
   condition: postgresql.enabled
   version: 13.2.24
   repository: https://charts.bitnami.com/bitnami
-#- name: firefly-db
-  #version: 0.2.1
-  #condition: firefly-db.enabled
-  #repository: https://firefly-iii.github.io/kubernetes/
 - name: firefly-iii
   version: 1.5.0
   condition: firefly-iii.enabled
