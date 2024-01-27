@@ -107,10 +107,25 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/fireflyiii-0.1.0.tgz
     version: 0.1.0
+  flaresolverr:
+  - apiVersion: v2
+    appVersion: v3.3.13
+    created: "2024-01-27T22:52:40.106388285+11:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: flaresolverr App
+    digest: 366d07cec1280aadfd55a84d2a17d26481f96d04d7d1828074f805d290ee535d
+    name: flaresolverr
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/flaresolverr-0.1.0.tgz
+    version: 0.1.0
   jellyfin:
   - apiVersion: v2
     appVersion: 10.8.11
-    created: "2023-12-04T09:25:04.590145981+11:00"
+    created: "2024-01-27T22:52:40.110644998+11:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
