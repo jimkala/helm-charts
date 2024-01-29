@@ -253,10 +253,25 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/prowlarr-0.1.1.tgz
     version: 0.1.1
+  radarr:
+  - apiVersion: v2
+    appVersion: 5.2.6
+    created: "2024-01-29T14:24:52.214580163+11:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: radarr App
+    digest: 67d17b028d426957fdea48297f8d8368d7c84b6f582378c0ab2e8eae182930fa
+    name: radarr
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/radarr-0.1.0.tgz
+    version: 0.1.0
   rdt-client:
   - apiVersion: v2
     appVersion: "2.0"
-    created: "2023-10-15T20:51:01.161345357+11:00"
+    created: "2024-01-29T14:24:52.221061207+11:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
