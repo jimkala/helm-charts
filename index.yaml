@@ -224,10 +224,25 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/nzbhydra2-0.1.0.tgz
     version: 0.1.0
+  pairdrop:
+  - apiVersion: v2
+    appVersion: 1.10.6
+    created: "2024-02-06T14:52:29.491319283+11:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: pairdrop App
+    digest: 052ae1a84bfa895599515a96fc1a7b686c4d62b586d4d57b7202b6ceaf6b642b
+    name: pairdrop
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/pairdrop-0.1.0.tgz
+    version: 0.1.0
   prowlarr:
   - apiVersion: v2
     appVersion: 1.9.4-nightly
-    created: "2023-10-15T20:51:01.155369058+11:00"
+    created: "2024-02-06T14:52:29.494670749+11:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
