@@ -15,10 +15,25 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/Prowlarr-0.1.0.tgz
     version: 0.1.0
+  audiobookshelf:
+  - apiVersion: v2
+    appVersion: 2.10.1
+    created: "2024-06-09T19:00:52.085288783+10:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: audiobookshelf App
+    digest: 47357404bc7ef07853dffba097a5bbd6f6f0a04a2f227add694cf2cf6497e9ef
+    name: audiobookshelf
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/audiobookshelf-0.1.0.tgz
+    version: 0.1.0
   bazarr:
   - apiVersion: v2
     appVersion: 1.2.1
-    created: "2023-10-15T20:51:01.129749051+11:00"
+    created: "2024-06-09T19:00:52.087132944+10:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
