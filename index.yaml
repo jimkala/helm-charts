@@ -15,10 +15,25 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/Prowlarr-0.1.0.tgz
     version: 0.1.0
+  actual-budget:
+  - apiVersion: v2
+    appVersion: 24.11.0-alpine
+    created: "2024-11-24T19:34:11.012596115+11:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 1.4.0
+    description: actual-budget App
+    digest: 6f159aef409ed55a83240878a6cc8c475e1e87c6d25fcd260aa56c0f7eed84d9
+    name: actual-budget
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/actual-budget-0.1.0.tgz
+    version: 0.1.0
   audiobookshelf:
   - apiVersion: v2
     appVersion: 2.10.1
-    created: "2024-06-09T19:00:52.085288783+10:00"
+    created: "2024-11-24T19:34:11.013912153+11:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/
