@@ -284,10 +284,37 @@ entries:
     urls:
     - https://jimkala.github.io/helm-charts/pairdrop-0.1.0.tgz
     version: 0.1.0
+  paperless:
+  - apiVersion: v2
+    appVersion: 2.13.5
+    created: "2025-01-06T15:19:46.517557509+11:00"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts/
+      version: 3.6.0
+    - name: redis
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 20.6.1
+    - name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 16.3.4
+    - name: tika
+      repository: https://apache.jfrog.io/artifactory/tika
+      version: 2.9.0
+    - name: gotenberg
+      repository: https://maikumori.github.io/helm-charts
+      version: 1.9.1
+    description: Paperless App
+    digest: af7c8df80ea3235d7b0e13de7a8f594783ffce42f9647516381fd1dfa553540e
+    name: paperless
+    type: application
+    urls:
+    - https://jimkala.github.io/helm-charts/paperless-0.1.0.tgz
+    version: 0.1.0
   prowlarr:
   - apiVersion: v2
     appVersion: 1.9.4-nightly
-    created: "2024-02-06T14:52:29.494670749+11:00"
+    created: "2025-01-06T15:19:46.520502601+11:00"
     dependencies:
     - name: common
       repository: https://bjw-s.github.io/helm-charts/

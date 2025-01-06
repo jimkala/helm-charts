@@ -1,0 +1,204 @@
+controllers:
+  paperless:
+    enabled: true
+    type: deployment
+
+    containers:
+      paperless:
+        enabled: true
+        image:
+          # -- image repository
+          repository: ghcr.io/paperless-ngx/paperless-ngx
+          # -- image tag
+          tag: 2.13.5
+          # -- image pull policy
+          pullPolicy: IfNotPresent
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
+
+        # -- Environment variables. Template enabled.
+        # Syntax options:
+        # A) TZ: UTC
+        # B) PASSWD: '{{ .Release.Name }}'
+        # B) TZ:
+        #      value: UTC
+        #      dependsOn: otherVar
+        # D) PASSWD:
+        #      configMapKeyRef:
+        #        name: config-map-name
+        #        key: key-name
+        # E) PASSWD:
+        #      dependsOn:
+        #        - otherVar1
+        #        - otherVar2
+        #      valueFrom:
+        #        secretKeyRef:
+        #          name: secret-name
+        #          key: key-name
+        #      ...
+        # F) - name: TZ
+        #      value: UTC
+        # G) - name: TZ
+        #      value: '{{ .Release.Name }}'
+        env:
+          # -- Set the container timezone
+          TZ: Australia/Melbourne
+          PAPERLESS_REDIS: "redis://{{.Release.Name}}-redis-master.{{.Release.Namespace}}.svc:6379"
+          PAPERLESS_DB: "{{.Release.Name}}-postgresql.{{.Release.Namespace}}.svc"
+          PAPERLESS_DBNAME: paperless
+          PAPERLESS_DBUSER: paperless
+          PAPERLESS_DBPASS: paperless
+          PAPERLESS_TIKA_ENABLED: true
+          PAPERLESS_TIKA_ENDPOINT: "http://{{.Release.Name}}-tika.{{.Release.Namespace}}.svc:9998"
+          PAPERLESS_TIKA_GOTENBERG_ENDPOINT: "http://{{.Release.Name}}-gotenberg.{{.Release.Namespace}}.svc:3000"
+          PAPERLESS_OCR_USER_ARGS: '{"invalidate_digital_signatures": true}'
+
+
+        #-- Secrets and/or ConfigMaps that will be loaded as environment variables.
+        # Syntax options:
+        # A) Pass an app-template configMap identifier:
+        #    - config: config
+        # B) Pass any configMap name that is not also an identifier (Template enabled):
+        #    - config: random-configmap-name
+        # C) Pass an app-template configMap identifier, explicit syntax:
+        #    - configMapRef:
+        #        identifier: config
+        # D) Pass any configMap name, explicit syntax (Template enabled):
+        #    - configMapRef:
+        #        name: "{{ .Release.Name }}-config"
+        # E) Pass an app-template secret identifier:
+        #    - secret: secret
+        # F) Pass any secret name that is not also an identifier (Template enabled):
+        #    - secret: random-secret-name
+        # G) Pass an app-template secret identifier, explicit syntax:
+        #    - secretRef:
+        #        identifier: secret
+        # H) Pass any secret name, explicit syntax (Template enabled):
+        #    - secretRef:
+        #        name: "{{ .Release.Name }}-secret"
+        envFrom: []
+      
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    enabled: true
+    controller: paperless
+    ports:
+      http:
+        port: 8000
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+
+# -- Configures the probes for the main Pod.
+# @default -- See values.yaml
+probes:
+  liveness:
+    enabled: true
+    ## Set this to true if you wish to specify your own livenessProbe
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  data:
+    enabled: true
+    type: persistentVolumeClaim
+    accessMode: ReadWriteOnce
+    size: 500Mi
+    retain: true
+    storageClass: longhorn
+    mountPath: /usr/src/paperless/data
+    advancedMounts:
+      paperless:
+        paperless:
+          - path: /usr/src/paperless/data
+            readOnly: false
+  media:
+    enabled: true
+    type: nfs
+    mountPath: /usr/src/paperless/media
+    server: jk-nas1.internal.kalaboukas.com
+    path: /storage/apps/paperless
+    advancedMounts:
+      paperless:
+        paperless:
+          - path: /usr/src/paperless/media
+            subPath: media
+            readOnly: false
+  export:
+    enabled: true
+    mountPath: /usr/src/paperless/export
+    type: nfs
+    server: jk-nas1.internal.kalaboukas.com
+    path: /storage/apps/paperless
+    advancedMounts:
+      paperless:
+        paperless:
+          - path: /usr/src/paperless/export
+            subPath: export
+            readOnly: false
+  consume:
+    enabled: true
+    type: nfs
+    server: jk-nas1.internal.kalaboukas.com
+    path: /storage/apps/paperless
+    mountPath: /usr/src/paperless/consume
+    advancedMounts:
+      paperless:
+        paperless:
+          - path: /usr/src/paperless/consume
+            subPath: consume
+            readOnly: false
+
+
+
+postgresql:
+  enabled: false
+  auth:
+    postgresPassword: "paperless"
+    username: "paperless"
+    password: "paperless"
+    database: "paperless"
+#    existingSecret: ""
+#    secretKeys:
+#      userPasswordKey: ""
+#      adminPasswordKey: ""
+  architecture: standalone
+  primary: 
+    persistence:
+      enabled: true
+      size: 250Mi
+
+redis:
+  enabled: true
+  auth:
+    enabled: false
+    existingSecret: ""
+    existingSecretPasswordKey: ""
+  architecture: standalone
+  master:
+    persistence:
+      enabled: true
+      size: 1Gi
+
+
+gotenberg:
+  enabled: true
+  ingress:
+    enabled: false
+  chromium:
+    disableJavaScript: true
+    allowList: "file:///tmp/.*"
+    maxQueueSize: 2
+
+tika:
+  enabled: true
+  ingress:
+    enabled: false
+  #config:
+    #base_url: "http://{{.Release.Name}}-{{.Release.Name}}.{{.Release.Namespace}}.svc/"
