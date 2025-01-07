@@ -118,44 +118,67 @@ persistence:
         paperless:
           - path: /usr/src/paperless/data
             readOnly: false
-  media:
+  pvc-nfs-apps-paperless:
     enabled: true
-    type: nfs
-    mountPath: /usr/src/paperless/media
-    server: jk-nas1.internal.kalaboukas.com
-    path: /storage/apps/paperless
+    type: persistentVolumeClaim
+    volumeName: nfs-apps-paperless
+    accessMode: ReadWriteMany
+    size: 100Mi
+    storageClass: "-"
     advancedMounts:
       paperless:
         paperless:
           - path: /usr/src/paperless/media
             subPath: media
             readOnly: false
-  export:
-    enabled: true
-    mountPath: /usr/src/paperless/export
-    type: nfs
-    server: jk-nas1.internal.kalaboukas.com
-    path: /storage/apps/paperless
-    advancedMounts:
-      paperless:
-        paperless:
-          - path: /usr/src/paperless/export
-            subPath: export
-            readOnly: false
-  consume:
-    enabled: true
-    type: nfs
-    server: jk-nas1.internal.kalaboukas.com
-    path: /storage/apps/paperless
-    mountPath: /usr/src/paperless/consume
-    advancedMounts:
-      paperless:
-        paperless:
           - path: /usr/src/paperless/consume
             subPath: consume
             readOnly: false
+          - path: /usr/src/paperless/export
+            subPath: export
+            readOnly: false
 
-
+#  media:
+#    enabled: true
+#    type: persistentVolumeClaim
+#    volumeName: nfs-apps-paperless
+#    accessMode: ReadWriteMany
+#    size: 100Mi
+#    storageClass: "-"
+#    advancedMounts:
+#      paperless:
+#        paperless:
+#          - path: /usr/src/paperless/media
+#            subPath: media
+#            readOnly: false
+#  export:
+#    enabled: true
+#    type: persistentVolumeClaim
+#    volumeName: nfs-apps-paperless
+#    accessMode: ReadWriteMany
+#    size: 100Mi
+#    storageClass: "-"
+#    advancedMounts:
+#      paperless:
+#        paperless:
+#          - path: /usr/src/paperless/export
+#            subPath: export
+#            readOnly: false
+#  consume:
+#    enabled: true
+#    type: persistentVolumeClaim
+#    volumeName: nfs-apps-paperless
+#    accessMode: ReadWriteMany
+#    storageClass: "-"
+#    size: 100Mi
+#    advancedMounts:
+#      paperless:
+#        paperless:
+#          - path: /usr/src/paperless/consume
+#            subPath: consume
+#            readOnly: false
+#
+#
 
 postgresql:
   enabled: false
